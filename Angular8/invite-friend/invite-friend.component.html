@@ -1,0 +1,41 @@
+<div class="kt-portlet__body">
+	<div class="kt-section">
+		<h3 class="kt-section__title">Invite a Friend</h3>
+        <div class="kt-section__body">
+			<div class="alert alert-secondary" role="alert">
+				<div class="alert-icon">
+					<i class="la la-heart"></i>
+				</div>
+				<div class="alert-text"> 
+					Share the love and invite your friends to join.  To send them a link, use the form below. 
+				</div>
+			</div>
+			<form class="kt-form" [formGroup]="invite_friend_form" (submit)="invite_sbmt(invite_friend_form.value)" action="">
+				<div class="form-group row">
+					<div class="col-lg-6 col-md-6">
+                        <label>Email Address</label>
+                        <input [class.is-invalid]="invite_friend_form['controls'].email.errors && btn.sbmt_btn" [class.is-valid]="invite_friend_form['controls'].email.valid" class="form-control" minlength="6" maxlength="150" type="email" formControlName="email"
+                        placeholder="Email address">
+                        <div class="text-danger" *ngIf="invite_friend_form['controls'].email.errors?.required && btn.sbmt_btn ">
+                            *Oops, you didn't enter an email?
+                        </div>
+                        <div class="text-danger" *ngIf="invite_friend_form['controls'].email.errors?.minlength  && !invite_friend_form['controls'].email.errors?.required">
+                            *Invalid email. Should be at least 6 characters.
+                        </div>
+                        <div class="text-danger" *ngIf="invite_friend_form['controls'].email.errors?.emailId && !invite_friend_form['controls'].email.errors?.minlength && !invite_friend_form['controls'].email.errors?.required">
+                            *Please enter valid email address.
+                        </div>
+					</div>
+				</div>
+				<div class="kt-portlet__foot">
+					<div class="kt-form__actions kt-align-right">
+						<button [disabled]="loading" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light': loading}" id="m_login_forget_password_submit" class="btn btn-info">
+							<i class="flaticon-mail-1" aria-hidden="true"></i>
+							Send 
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

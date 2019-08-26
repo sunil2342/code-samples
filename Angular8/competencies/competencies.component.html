@@ -1,0 +1,479 @@
+<!-- begin:: Subheader -->
+<div class="kt-subheader kt-grid__item" id="kt_subheader">
+  	<div class="kt-subheader__main">
+    	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+        <path
+          d="M12,18 L7.91561963,20.1472858 C7.42677504,20.4042866 6.82214789,20.2163401 6.56514708,19.7274955 C6.46280801,19.5328351 6.42749334,19.309867 6.46467018,19.0931094 L7.24471742,14.545085 L3.94038429,11.3241562 C3.54490071,10.938655 3.5368084,10.3055417 3.92230962,9.91005817 C4.07581822,9.75257453 4.27696063,9.65008735 4.49459766,9.61846284 L9.06107374,8.95491503 L11.1032639,4.81698575 C11.3476862,4.32173209 11.9473121,4.11839309 12.4425657,4.36281539 C12.6397783,4.46014562 12.7994058,4.61977315 12.8967361,4.81698575 L14.9389263,8.95491503 L19.5054023,9.61846284 C20.0519472,9.69788046 20.4306287,10.2053233 20.351211,10.7518682 C20.3195865,10.9695052 20.2170993,11.1706476 20.0596157,11.3241562 L16.7552826,14.545085 L17.5353298,19.0931094 C17.6286908,19.6374458 17.263103,20.1544017 16.7187666,20.2477627 C16.5020089,20.2849396 16.2790408,20.2496249 16.0843804,20.1472858 L12,18 Z"
+          id="Star" fill="#000000" />
+      </g>
+    </svg> 
+    	<h3 class="kt-subheader__title">Competencies</h3>
+    	<span class="kt-subheader__separator kt-subheader__separator--v"></span>
+		<div title="Registration Year Selector" class="btn-group" id="registration-year-selector">
+		  <button class="btn kt-subheader__btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+			  viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+			  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+				<path
+				  d="M7.74714567,15.0425758 C6.09410362,13.9740356 5,12.1147886 5,10 C5,6.6862915 7.6862915,4 11,4 C13.7957591,4 16.1449096,5.91215918 16.8109738,8.5 L19.25,8.5 C21.3210678,8.5 23,10.1789322 23,12.25 C23,14.3210678 21.3210678,16 19.25,16 L10.25,16 C9.28817895,16 8.41093178,15.6378962 7.74714567,15.0425758 Z"
+				  id="Combined-Shape-Copy" fill="#000000" opacity="0.3" />
+				<path
+				  d="M3.74714567,19.0425758 C2.09410362,17.9740356 1,16.1147886 1,14 C1,10.6862915 3.6862915,8 7,8 C9.79575914,8 12.1449096,9.91215918 12.8109738,12.5 L15.25,12.5 C17.3210678,12.5 19,14.1789322 19,16.25 C19,18.3210678 17.3210678,20 15.25,20 L6.25,20 C5.28817895,20 4.41093178,19.6378962 3.74714567,19.0425758 Z"
+				  id="Combined-Shape" fill="#000000" />
+			  </g>
+			</svg>{{presentSession}}
+		  </button>
+		  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" x-placement="bottom-start">
+			<h6 class="dropdown-header" id="ry-viewing">Switch to:</h6>
+			<ng-container *ngFor="let roll of yearsList; let in=index">
+			  <a *ngIf="roll.year_plan == presentSession" href="" class="dropdown-item active"
+				(click)="selectYearSession(in,roll)">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+				  height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+				  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+					<path
+					  d="M7.74714567,15.0425758 C6.09410362,13.9740356 5,12.1147886 5,10 C5,6.6862915 7.6862915,4 11,4 C13.7957591,4 16.1449096,5.91215918 16.8109738,8.5 L19.25,8.5 C21.3210678,8.5 23,10.1789322 23,12.25 C23,14.3210678 21.3210678,16 19.25,16 L10.25,16 C9.28817895,16 8.41093178,15.6378962 7.74714567,15.0425758 Z"
+					  id="Combined-Shape-Copy" fill="#000000" opacity="0.3" />
+					<path
+					  d="M3.74714567,19.0425758 C2.09410362,17.9740356 1,16.1147886 1,14 C1,10.6862915 3.6862915,8 7,8 C9.79575914,8 12.1449096,9.91215918 12.8109738,12.5 L15.25,12.5 C17.3210678,12.5 19,14.1789322 19,16.25 C19,18.3210678 17.3210678,20 15.25,20 L6.25,20 C5.28817895,20 4.41093178,19.6378962 3.74714567,19.0425758 Z"
+					  id="Combined-Shape" fill="#000000" />
+				  </g>
+				</svg>
+				{{roll.year_plan}}
+			  </a>
+			  <a *ngIf="roll.year_plan != presentSession" href="" class="dropdown-item"
+				(click)="selectYearSession(in,roll)">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+				  height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+				  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+					<path
+					  d="M7.74714567,15.0425758 C6.09410362,13.9740356 5,12.1147886 5,10 C5,6.6862915 7.6862915,4 11,4 C13.7957591,4 16.1449096,5.91215918 16.8109738,8.5 L19.25,8.5 C21.3210678,8.5 23,10.1789322 23,12.25 C23,14.3210678 21.3210678,16 19.25,16 L10.25,16 C9.28817895,16 8.41093178,15.6378962 7.74714567,15.0425758 Z"
+					  id="Combined-Shape-Copy" fill="#000000" opacity="0.3" />
+					<path
+					  d="M3.74714567,19.0425758 C2.09410362,17.9740356 1,16.1147886 1,14 C1,10.6862915 3.6862915,8 7,8 C9.79575914,8 12.1449096,9.91215918 12.8109738,12.5 L15.25,12.5 C17.3210678,12.5 19,14.1789322 19,16.25 C19,18.3210678 17.3210678,20 15.25,20 L6.25,20 C5.28817895,20 4.41093178,19.6378962 3.74714567,19.0425758 Z"
+					  id="Combined-Shape" fill="#000000" />
+				  </g>
+				</svg>
+				{{roll.year_plan}}
+			  </a>
+			</ng-container>
+		  </div>
+		</div>
+		<a title="Print to PDF"  (click)="downloadPDF()" href="javascript:;"
+      class="btn kt-subheader__btn-primary btn-icon">
+      <i class="flaticon2-fax"></i>
+    </a>
+	  	<span title="Show/Hide Help" class="helper-toggle">
+		  <button type="button" data-toggle="collapse" data-target="#alert_page-help" aria-expanded="false"
+			aria-controls="alert_page-help" class="btn btn-sm btn-icon btn-circle btn-warning collapsed">
+			?
+		  </button>
+		</span>
+  	</div>
+  <div class="kt-subheader__toolbar">
+    <div class="kt-subheader__wrapper">
+    </div>
+  </div>
+</div>
+<!-- end:: Subheader -->
+
+<!-- begin:: Content -->
+<div class="kt-content kt-grid__item kt-grid__item--fluid">
+  <div class="row">
+		<div class="col-lg-12">
+		  <div class="alert alert-yellow fade collapse show" role="alert" id="alert_page-help" aria-labelledby="alert_page-help">
+				<div class="alert-icon kt-hidden-mobile"><i class="flaticon-chat-1"></i></div>
+				<div class="alert-text">
+					<span class="kt-font-bold">Page help.</span>&nbsp;&nbsp;Keep track of all your competencies by adding them to the table below.&nbsp;&nbsp;You can set expirey dates and attach certificates to them.
+				</div>
+				<div class="alert-close">
+				  <button type="button" class="close" data-toggle="collapse" data-target="#alert_page-help"
+					aria-expanded="false" aria-controls="alert_page-help">
+					<span aria-hidden="true"><i class="la la-close"></i></span>
+				  </button>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-12">
+		  <div class="kt-portlet kt-portlet--bordered" id="portlet__competencies">
+			<div class="kt-portlet__head">
+			  <div class="kt-portlet__head-label kt-pull-left d-flex">
+				<h3 class="kt-portlet__head-title">
+				  Competency List
+				</h3>
+			  </div>
+			  <div class="kt-portlet__head-toolbar">
+				<button type="button" class="btn btn-primary" (click)="openModal()" data-target="#m_modal"
+				  data-toggle="modal" title="Add Competency" id="btn-add-new">
+				  <i class="la la-plus-circle"></i>
+				  Add New
+				</button>
+			  </div>
+			</div>
+			<div class="kt-portlet__body">
+			  <div class="kt-section">
+				<div class="kt-section__content">
+				  <div class="table-responsive">
+					<table class="table" id="table--comps">
+					  <thead class="cpd-thead">
+						<tr>
+						  <th style="min-width: 343px;">Competency</th>
+						  <th style="min-width: 100px;" class="kt-align-right">Status</th>
+						  <th style="min-width: 110px;" class="kt-align-right">Expires</th>
+						  <th style="min-width: 100px;" class="kt-align-right">Actions</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr *ngFor="let details of gridList;let ind = index">
+						  <td style="min-width: 343px;">{{details.title}}</td>
+						  <td class="kt-align-right">
+							  <span *ngIf="details.status == 'Current'" class="text-success">{{details.status}}</span>	  
+							  <span *ngIf="details.status == 'Expired'" class="text-danger">{{details.status}}</span>
+							  <span *ngIf="details.status == 'Expires soon'" class="text-warning">{{details.status}}</span>
+							</td>
+						  <td style="min-width: 110px;" class="kt-align-right">
+								<span *ngIf="details.status == 'Current'" class="kt-badge kt-badge--inline kt-badge--pill kt-badge--success kt-badge--sm">
+										{{details.expire_date}}
+								</span>
+								<span *ngIf="details.status == 'Expired'" class="kt-badge kt-badge--inline kt-badge--pill kt-badge--danger kt-badge--sm">
+										{{details.expire_date}}
+								</span>
+								<span *ngIf="details.status == 'Expires soon'" class="kt-badge kt-badge--inline kt-badge--pill kt-badge--warning kt-badge--sm">
+										{{details.expire_date}}
+								</span>							
+						</td>
+						  <td style="min-width: 100px;" class="cpd-table-actions kt-align-right">
+							<a title="View" class="btn btn-sm btn-secondary btn-icon"
+							  (click)="edit_competency(details.id, 'View')" data-target="#view_modal" data-toggle="modal">
+							  <i class="fa fa-search"></i>
+							</a>
+							<a title="Edit" class="btn btn-sm btn-secondary btn-icon"
+							  (click)="edit_competency(details.id, 'Edit')" data-target="#m_modal" data-toggle="modal">
+							  <i class="fa fa-pencil-alt"></i>
+							</a>
+							<a title="Delete" class="btn btn-sm btn-secondary btn-icon" (click)="del_competency(details.id)"
+							  data-target="#m_modal_delete" data-toggle="modal">
+							  <i class="fa fa-times"></i>
+							</a>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+					<!-- Start:: Display if no entries detected -->
+					<div class="col-lg-12" *ngIf="gridList?.length==0">
+					  No competencies to display yet.
+					</div>
+					<!-- End:: Display if no entries detected -->
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+  </div>
+</div>
+<!-- end:: Content -->
+
+<!-- begin:: Modal | add-edit -->
+<div class="modal fade" id="m_modal" role="dialog" tabindex="-1" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<!-- Header -->
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">
+					<i class="fa fa-pencil-alt"></i>
+					{{formType}} Competency
+				</h5>
+				<button aria-label="Close" class="close" type="button" (click)="detectChanges()">
+				</button>
+			</div>
+			<!-- Body -->
+			<div class="modal-body">
+				<ng-template #alertSignin></ng-template>
+			<!--  begin:: Form Body -->
+				<form [formGroup]="competencyForm" id="add_edit_competency" class="kt-form kt-form--fit ng-untouched ng-pristine ng-invalid kt-form--label-align-right">
+					<div class="form-group row">
+						<div class="col-lg-12">
+							<label>Competency Title <span class="kt-font-danger">*</span></label>
+							<input [class.is-invalid]="competencyForm['controls'].title.errors && btn.sbmt_btn" [class.is-valid]="competencyForm['controls'].title.valid" type="text" class="form-control add-new--required" id="m_maxlength_1" minlength="1" maxlength="150" formControlName="title" placeholder="Title" (click)="changeDetected()">
+							<div class="form-text text-danger" *ngIf="competencyForm['controls'].title.errors?.required && btn.sbmt_btn">
+								*required
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-4 col-md-4">
+							<label>Start Date:</label>
+							<div class="kt-input-icon kt-input-icon--left start_date">
+								<div class="kt-input-icon__icon kt-input-icon__icon--left">
+									<span>
+										<i class="la la-calendar"></i>
+									</span>
+								</div>
+								<input (click)="changeDetectedDate()" type="text" class="form-control m_datepicker" formControlName="start_date" id="start_date" placeholder="Select date" autocomplete="off" />
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<label>Expiry Date:</label>
+							<div class="kt-input-icon kt-input-icon--left expire_date">
+								<div class="kt-input-icon__icon kt-input-icon__icon--left">
+									<span>
+										<i class="la la-calendar"></i>
+									</span>
+								</div>
+								<input (blur)="changeExpireDetected()" type="text" class="form-control m_datepicker" id="expire_date" formControlName="expire_date" placeholder="Select date" autocomplete="off" />
+							</div>
+							<div class="form-text">
+								-or- <a href="#" (click)="setExpireDate()" class="kt-link kt-link-brand kt-font-bold">click</a> for 12 months from start.
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-4 col-md-4">
+							<label>Status</label>
+							<div><span id="expire_status" class="text-outline"></span></div>
+						</div>
+					</div>
+					<div class="kt-section">
+					<!-- Attachment -->
+						<h3 class="kt-section__title">Attachments</h3>
+						<div class="kt-section__body">
+							<div class="form-group row">
+								<!-- Attachment -->
+								<div class="col-lg-8" *ngIf="uploadfile">
+                                    <dropzone id="dzone" *ngIf="type === 'component'" class="dropzone-container" [config]="config"
+                                    [disabled]="disabled" fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto"
+                                    [message]="'Drop files here or click to upload (Acceptable File Types - PDF,  DOC, DOCX, JPEG)'"
+                                    (error)="onUploadFile($event)" (processing)="onFileProgress($event)" (success)="onFileUpload($event)" (click)="changeDetected()"
+                                    [hidden]="true"></dropzone>
+									<button type="button" class="btn btn-secondary" *ngIf="type === 'component'" (click)="upload();">
+										<i class="la la-cloud-upload"></i>
+										Upload File
+									</button>
+									<div class="kt-spinner kt-spinner--md kt-spinner--brand" *ngIf="fileLoading"></div>
+									<!-- NOTE: Using Widget4 to display the uploaded files in -->
+									<div class="kt-widget4 kt-margin-t-25">
+									<!-- Image list (uses image icon) -->
+										<div class="kt-widget4__item" *ngFor="let image of imageListName; let l=index">
+											<span class="kt-widget4__icon">
+											<i class="la la-file-image-o"></i>
+											</span>
+											<a (click)="OpenFile(image)" href="javascript:;" class="kt-widget4__title">
+												{{image}}
+											</a>
+											<span class="cpd-table-actions">
+												<a class="btn btn-sm btn-icon btn-icon-lg edit_qual" (click)="removeFile(l,'img')">
+													<i class="la la-close"></i>
+												</a>
+											</span>
+										</div>
+										<!-- File list (uses file icon) -->
+										<div class="kt-widget4__item" *ngFor="let file of fileList; let k=index">
+											<span class="kt-widget4__icon">
+												<i class="la la-file-text"></i>
+											</span>
+											<a (click)="OpenFile(fileList)" href="javascript:;" class="kt-widget4__title">
+											{{file}}
+											</a>
+											<span class="cpd-table-actions">
+												<a class="btn btn-sm btn-icon btn-icon-lg edit_qual" (click)="removeFile(k,'fil')">
+												<i class="la la-close"></i>
+											</a>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			<!--  end:: Form Body -->
+			</div>
+			<!-- Footer -->
+			<div class="modal-footer">
+				<button type="button" (click)="detectChanges()" class="btn btn-secondary" title="Cancel">
+					Cancel
+				</button>
+				<button type="submit" (click)="saveContinue(competencyForm.value)" class="btn btn-info" title="Save">
+					<i class="la la-save"></i>
+						Save
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end:: Modal | add-edit -->
+
+<!-- begin:: Modal | unsaved changes -->
+<div class="modal fade unsavedModal" id="m_modal_conf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document" id="modal-unsaved-changes">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					Unsaved Changes
+				</h5>
+				<button id="clos_conf_mod" type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<div class="modal-body">
+				Unsaved changes detected. If you continue, you will lose them.
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal" (click)="close_mod();">
+					Discard
+				</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal" (click)="saveContinue(competencyForm.value)">
+					Save
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end:: Modal | unsaved changes -->
+
+<!-- begin:: Modal | delete -->
+<div class="modal fade" id="m_modal_delete" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					Delete
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+		<div class="modal-body">
+			You are about to delete this Competency and any attachments it has.
+			<ng-template>
+			</ng-template>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" id="close_modal_del" data-dismiss="modal">
+				Cancel
+			</button>
+			<button type="button" data-target="#m_modal_del-conf" data-toggle="modal" class="btn btn-danger">
+				Delete
+			</button>
+		</div>
+		</div>
+	</div>
+</div>
+<!-- end:: Modal | delete -->
+
+<!-- begin:: Modal | delete confirm -->
+<div class="modal fade" id="m_modal_del-conf" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document" id="delete--warning2">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					Confirm
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<div class="modal-body">
+				<span class="text-danger kt-font-bold">Are you really sure?</span> Documents and information attached to this Competency will also be removed from the system.
+				<ng-template></ng-template>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" id="close_modal_del_conf" data-dismiss="modal" (click)="del_cncl()" title="Close">
+					Cancel
+				</button>
+				<button type="button" (click)="del_comp_grd_by_indx()" class="btn btn-danger" title="delete">
+					Yes, Delete
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end:: Modal | delete confirm -->
+
+<!-- begin:: Modal | view -->
+<div class="modal fade" role="dialog" tabindex="-1" id="view_modal">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					<i class="la la-search"></i>
+					View Competency
+				</h5>
+				<button id="cls_view" type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="reset()">
+				</button>
+			</div>
+			<div class="modal-body kt-form">
+				<div class="kt-section kt-section--last">
+				  <div class="kt-section__body">
+					<div class="form-group row">
+						<div class="col-lg-12">
+							<label class="view-label">Competency Title</label>
+							<div class="view-content">
+								{{editData.title}}
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-3 col-md-3">
+						  <label class="view-label">Start Date</label>
+						  <div class="view-content">
+								{{editData.start_date}}
+						  </div>
+						</div>
+						<div class="col-lg-3 col-md-3">
+							<label class="view-label">Expire Date</label>
+							<div class="view-content">
+								{{editData.expire_date}}
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3">
+							<label class="view-label">Status</label>
+							<div class="view-content">
+								
+								<span class="text-outline">{{editData.status}}</span>
+							</div>
+						</div>
+					</div>
+					<!-- NOTE: Using Widget4 to display the uploaded files in -->
+					<div class="form-group row">
+						<div class="col-lg-8">
+							<label class="view-label">Attachments</label>
+							<div class="kt-widget4 kt-margin-t-15">
+							  <!-- Image list (uses image icon) -->
+							  <div class="kt-widget4__item" *ngFor="let image of imageListName; let l=index">
+									<span class="kt-widget4__icon">
+										<i class="la la-file-image-o"></i>
+									</span>
+									<a (click)="OpenFile(image)" href="javascript:;" class="kt-widget4__title">
+									  {{image}}
+									</a>
+							  </div>
+							  <!-- File list (uses file icon) -->
+							  <div class="kt-widget4__item" *ngFor="let file of fileList; let k=index">
+									<span class="kt-widget4__icon">
+									  <i class="la la-file-text"></i>
+									</span>
+									<a (click)="OpenFile(fileList)" href="javascript:;" class="kt-widget4__title">
+									  {{file}}
+									</a>
+							  </div>
+							</div>
+						</div>
+				  	</div>
+				</div>
+			  </div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close"
+				  (click)="reset()">
+					Close
+				</button>
+			</div>
+  		</div>
+	</div>
+</div>
+<!-- begin:: Modal | view -->

@@ -1,0 +1,116 @@
+<!-- Add/Edit Qualification Modal Starts -->
+<div class="modal fade" id="kt_modal_min_qlf" role="dialog"  tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content"> 
+			<div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add a Qualification</h5>
+                <a id="conf_btn_detacted" data-target="#m_modal_conf_detected" data-toggle="modal" style="display:none"></a>
+                <button (click)="detectChanges()" class="close" type="button">
+                	<span aria-hidden="true">×</span>
+                </button>
+            </div>
+			<form class="kt-form" [formGroup]="qualificationformDetected">
+				<div class="modal-body">
+					<div class="alert alert-yellow">
+						<div class="alert-icon kt-hidden-mobile"><i class="flaticon-chat-1"></i></div>
+						<div class="alert-text">
+						  You have opened a new Registration Year. To start using it, you need to set your Qualifications below.
+						</div>
+				  </div>
+					<div class="kt-section kt-section--first">
+                        <h3 class="kt-section__title">1. Select Your Qualification</h3>
+                        <div class="kt-section__body">
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                    <div [ngClass]="{'has-danger':qualificationformDetected.controls.qualification_id.errors?.required && sbmt_pers_btn}">
+                                        <select aria-describedby="country-error" class="form-control add-new--required"  (change)="changeDetected($event.target.value)" formControlName="qualification_id">
+                                            <optgroup *ngIf="(qualificationTypeList[0] !='')" label="Registrations">
+                                                <option *ngFor="let item of qualificationTypeList[0]" value="{{item.id}}">{{item.qualification_name}}</option>
+                                            </optgroup>
+                                            <optgroup *ngIf="(qualificationTypeList[1] !='')" label="Endorsments">
+                                                <option *ngFor="let data of qualificationTypeList[1]" value="{{data.id}}">{{data.qualification_name}}</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <span *ngIf="qualificationformDetected.controls.qualification_id.errors?.required && sbmt_pers_btn" class="text-danger">
+                                        *Required
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+                    <div class="kt-section kt-section--last">
+                      <h3 class="kt-section__title">2. Confirm Start Date</h3>
+                      	<div class="kt-section__body">
+							<div class="form-group row">
+								<label class="col-lg-12 kt-margin-b-20">Did you receive (or renew) this at the beginning of the Registration Year?</label>
+								<div class="col-lg-3 col-md-3 col-sm-3">
+									<div *ngFor="let menu of customList; let j = index" class="kt-radio-list">
+										<label class="kt-radio">
+											<input type="radio" formControlName="custom" value="{{menu.id}}" (change)="onChange_strt_date(menu)" checked="{{menu.value}}">{{menu.text}}
+											<span></span>
+										</label>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5 col-sm-6" [hidden]="!showDatepicker">
+									<div [ngClass]="{'has-danger':(qualificationformDetected.controls.reg_date.errors?.required || validateDate(slct.value)) && sbmt_pers_btn}">
+										<div class="kt-input-icon kt-input-icon--left date">
+											<div class="kt-input-icon__icon kt-input-icon__icon--left">
+												<span><i class="la la-calendar"></i></span>
+											</div>
+											<input type="text" class="form-control add-new--required" id="m_datepicker_detected" #slct (blur)="selectDate(slct)" placeholder="Select date" formControlName="reg_date"
+											autocomplete="off" (click)="changeDetected($event)" />
+										</div>
+									</div>
+									<div class="form-text">Select custom date<span class="text-danger">*</span></div>
+									<span *ngIf="qualificationformDetected.controls.reg_date.errors?.required && sbmt_pers_btn" class="text-danger">
+										*Required
+									</span>
+									<span *ngIf="validateDate(slct.value)" class="text-danger form-control-feedback">
+										<span *ngIf="sess.end_year == year">*Select Date between 1st June {{sess.start_year}} to Today's date</span>
+										<span *ngIf="sess.end_year != year">*Select Date between 1st June {{sess.start_year}} to 31st May {{sess.end_year}}</span>
+									</span>
+								</div>
+							</div>
+                    	</div>
+					</div>
+				</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" (click)="detectChanges()">
+                          Cancel
+                    </button>
+                    <button class="btn btn-info" type="submit" (click)="saveQualification(qualificationformDetected.value)">
+                          <i class="la la-save"></i>Save
+                    </button>
+                    <a id="clos_qual_mod_detected" data-dismiss="modal" aria-label="Close" style="display: none"></a>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Add/Edit Qualification Modal Ends -->
+
+<div class="modal fade" id="m_modal_conf_detected" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document" id="modal-unsaved-changes">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">
+					Unsaved Changes
+				</h5>
+				<button id="cls_qlf_md_detected" type="button" class="close" data-dismiss="modal" aria-label="Close">
+				</button>
+			</div>
+			<div class="modal-body">
+				Unsaved changes detected. If you continue, you will lose them.
+			</div>
+			<div class="modal-footer">
+				<button id="clos_conf" type="button" class="btn btn-danger" data-dismiss="modal" (click)="close_popup()">
+					Discard
+				</button>
+				<button type="button" class="btn btn-info" (click)="saveQualification(qualificationformDetected.value)">
+					Save
+				</button>
+			</div>
+		</div>
+	</div>
+</div>  
