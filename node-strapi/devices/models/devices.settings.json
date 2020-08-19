@@ -1,0 +1,126 @@
+{
+  "kind": "collectionType",
+  "collectionName": "devices",
+  "info": {
+    "name": "devices",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "appId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "pname": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "descriptionHTML": {
+      "type": "richtext"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "free": {
+      "type": "boolean"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "priceText": {
+      "type": "string"
+    },
+    "offersIAP": {
+      "type": "boolean"
+    },
+    "size": {
+      "type": "string"
+    },
+    "androidVersionText": {
+      "type": "string"
+    },
+    "privacyPolicy": {
+      "type": "string"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "genreId": {
+      "type": "string"
+    },
+    "screenshots": {
+      "type": "json"
+    },
+    "contentRating": {
+      "type": "string"
+    },
+    "adSupported": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    },
+    "recentChanges": {
+      "type": "richtext"
+    },
+    "comments": {
+      "type": "json"
+    },
+    "editorsChoice": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "richtext"
+    },
+    "dPath": {
+      "type": "string"
+    },
+    "released": {
+      "type": "date"
+    },
+    "updated": {
+      "type": "datetime"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "headerImage": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "videoImage": {
+      "type": "string"
+    },
+    "androidVersion": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "android",
+        "ios"
+      ]
+    },
+    "developer": {
+      "model": "developer",
+      "via": "devices"
+    },
+    "stats": {
+      "model": "stats",
+      "via": "app"
+    }
+  }
+}
